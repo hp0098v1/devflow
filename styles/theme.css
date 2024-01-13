@@ -93,6 +93,10 @@
   /* -------------------------------------------------------------------------- */
   /*                              Background Colors                             */
   /* -------------------------------------------------------------------------- */
+  .bg-light-900-dark-400 {
+    @apply bg-light-900 dark:bg-dark-400;
+  }
+
   .bg-light-850-dark-100 {
     @apply bg-light-850 dark:bg-dark-100;
   }
@@ -118,7 +122,7 @@
   }
 
   .bg-light-800-dark-gradient {
-    @apply bg-light-800 dark:bg-dark-gradient;
+    @apply bg-light-800 dark:dark-gradient;
   }
 
   /* -------------------------------------------------------------------------- */
@@ -126,13 +130,13 @@
   /* -------------------------------------------------------------------------- */
   .primary-text-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
-    background-clip: text;
+    background-clip: text !important;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .primary-gradient {
-    background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+    background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%) !important;
   }
 
   .dark-gradient {
@@ -148,7 +152,7 @@
       132deg,
       rgba(247, 249, 255, 0.5) 0%,
       rgba(229, 237, 255, 0.25) 100%
-    );
+    ) !important;
   }
 
   /* -------------------------------------------------------------------------- */

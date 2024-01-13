@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import React from "react";
 
 type TProps = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
 export default function AuthLayout({ children }: TProps) {
