@@ -2,6 +2,7 @@ import React from "react";
 
 import Navbar from "@/components/shared/navbar/Navbar";
 import LeftSidebar from "@/components/shared/sidebar/LeftSidebar";
+import RightSidebar from "@/components/shared/sidebar/RightSidebar";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="mx-auto w-full max-w-5xl">{children}</div>
         </section>
         {/* Right Sidebar */}
-        Right Sidebar
+        <RightSidebar />
       </div>
       {/* Toaster */}
       Toaster
