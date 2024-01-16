@@ -106,7 +106,7 @@
   }
 
   .bg-light-800-dark-300 {
-    @apply bg-light-800 dark:bg-dark-300;
+    @apply bg-light-800 dark:bg-dark-300 !important;
   }
 
   .bg-light-800-dark-400 {
