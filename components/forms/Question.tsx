@@ -22,11 +22,19 @@ import {
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { createQuestion } from "@/lib/actions/question.action";
+import { useParams, useRouter } from "next/navigation";
 
 const type: string = "create";
 
-const Question = () => {
+type QuestionPropsType = {
+  mongoUserId: string;
+};
+
+const Question = ({ mongoUserId }: QuestionPropsType) => {
+  const router = useRouter();
+  const pathname = useParams();
   const { theme } = useTheme();
+
   const editorRef = useRef(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,7 +62,15 @@ const Question = () => {
         navigate to homepage
       */
 
-      await createQuestion({});
+      await createQuestion({
+        title: values.title,
+        content: values.explanation,
+        tags: values.tags,
+        author: JSON.parse(mongoUserId),
+        path: "/",
+      });
+
+      router.push("/");
     } catch (error) {
     } finally {
       setIsSubmitting(false);
