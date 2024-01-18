@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { createQuestion } from "@/lib/actions/question.action";
 
 const type: string = "create";
 
@@ -41,7 +42,7 @@ const Question = () => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof QuestionsSchema>) {
+  async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
     setIsSubmitting(true);
     console.log(values);
 
@@ -52,6 +53,8 @@ const Question = () => {
 
         navigate to homepage
       */
+
+      await createQuestion({});
     } catch (error) {
     } finally {
       setIsSubmitting(false);
@@ -135,6 +138,8 @@ const Question = () => {
                   apiKey={process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY}
                   // @ts-ignore
                   onInit={(evt, editor) => (editorRef.current = editor)}
+                  onBlur={field.onBlur}
+                  onEditorChange={(content) => field.onChange(content)}
                   initialValue=""
                   init={{
                     height: 350,
