@@ -7,12 +7,12 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-inter",
 });
-export const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-spaceGrotesk",

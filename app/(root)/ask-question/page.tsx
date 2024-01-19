@@ -11,8 +11,6 @@ export default async function AskQuestionPage() {
 
   const mongoUser = await getUserById({ userId: "123456" });
 
-  console.log(mongoUser);
-
   return (
     <div>
       <h1 className="h1-bold text-dark-100-light-900">Ask a Question</h1>

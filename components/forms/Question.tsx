@@ -22,7 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { createQuestion } from "@/lib/actions/question.action";
-import { useParams, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const type: string = "create";
 
@@ -31,8 +31,10 @@ type QuestionPropsType = {
 };
 
 const Question = ({ mongoUserId }: QuestionPropsType) => {
+  // Router
   const router = useRouter();
-  const pathname = useParams();
+  const pathname = usePathname();
+
   const { theme } = useTheme();
 
   const editorRef = useRef(null);
@@ -52,22 +54,14 @@ const Question = ({ mongoUserId }: QuestionPropsType) => {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
     setIsSubmitting(true);
-    console.log(values);
 
     try {
-      /* TODO:
-        make an async call to API => Create or Edit Question
-        contain all form data
-
-        navigate to homepage
-      */
-
       await createQuestion({
         title: values.title,
         content: values.explanation,
         tags: values.tags,
         author: JSON.parse(mongoUserId),
-        path: "/",
+        path: pathname,
       });
 
       router.push("/");

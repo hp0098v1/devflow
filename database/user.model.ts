@@ -1,9 +1,9 @@
 import { Document, Schema, model, models } from "mongoose";
 
-type UserType = {
+export type UserType = {
   clerkId: string;
   name: string;
-  usernames: string;
+  username: string;
   email: string;
   password?: string;
   bio?: string;
@@ -18,7 +18,7 @@ type UserType = {
 const userSchema = new Schema<UserType>({
   clerkId: { type: String, required: true },
   name: { type: String, required: true },
-  usernames: { type: String, required: true },
+  username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String },
   bio: { type: String },
