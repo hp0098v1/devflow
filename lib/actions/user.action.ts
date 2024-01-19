@@ -26,7 +26,7 @@ export async function getUserById(params: any) {
 
 export async function createUser(userData: CreateUserParamsType) {
   try {
-    await connectToDatabase();
+    connectToDatabase();
 
     const newUser = await User.create(userData);
 
@@ -39,7 +39,7 @@ export async function createUser(userData: CreateUserParamsType) {
 
 export async function updateUser(userData: UpdateUserParamsType) {
   try {
-    await connectToDatabase();
+    connectToDatabase();
 
     const { clerkId, updateData, path } = userData;
 
@@ -54,7 +54,7 @@ export async function updateUser(userData: UpdateUserParamsType) {
 
 export async function deleteUser(params: DeleteUserParamsType) {
   try {
-    await connectToDatabase();
+    connectToDatabase();
 
     const { clerkId } = params;
 
