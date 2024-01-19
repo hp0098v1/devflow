@@ -30,7 +30,7 @@ const Filter = ({
             <SelectValue placeholder="Select a filter" />
           </div>
         </SelectTrigger>
-        <SelectContent className="border-light-800-dark-300 bg-light-800-dark-300">
+        <SelectContent className="border-light-800-dark-300 text-dark-500-light-700 bg-light-800-dark-300">
           <SelectGroup>
             {filters.map((filter) => (
               <SelectItem key={filter.value} value={filter.value}>

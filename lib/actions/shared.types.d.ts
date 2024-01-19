@@ -39,3 +39,18 @@ export type UpdateUserParamsType = {
 export type DeleteUserParamsType = {
   clerkId: string;
 };
+
+export type GetAllUsersParamsType = {
+  page?: number;
+  pageSize?: number;
+  searchQuery?: string;
+  filter?: string;
+};
+
+/* -------------------------------------------------------------------------- */
+/*                                 Tag Params                                 */
+/* -------------------------------------------------------------------------- */
+export type GetTopInteractedTagsParamsType = {
+  userId: string;
+  limit?: number;
+};
