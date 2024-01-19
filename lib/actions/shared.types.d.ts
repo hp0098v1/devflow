@@ -50,6 +50,13 @@ export type GetAllUsersParamsType = {
 /* -------------------------------------------------------------------------- */
 /*                                 Tag Params                                 */
 /* -------------------------------------------------------------------------- */
+export type GetAllTagsParamsType = {
+  page?: number;
+  pageSize?: number;
+  filter?: string;
+  searchQuery?: string;
+};
+
 export type GetTopInteractedTagsParamsType = {
   userId: string;
   limit?: number;
