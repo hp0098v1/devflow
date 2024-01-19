@@ -62,9 +62,11 @@ export async function POST(req: Request) {
     const { id, email_addresses, image_url, username, first_name, last_name } =
       evt.data;
 
+    console.log("Event Type: Create");
+
     // TODO: Create a new user in database
 
-    const mongoUser = createUser({
+    const mongoUser = await createUser({
       clerkId: id,
       name: `${first_name} ${last_name || ""}`,
       username: username!,
@@ -79,9 +81,11 @@ export async function POST(req: Request) {
     const { id, email_addresses, image_url, username, first_name, last_name } =
       evt.data;
 
+    console.log("Event Type: Update");
+
     // TODO: Update user in database
 
-    const mongoUser = updateUser({
+    const mongoUser = await updateUser({
       clerkId: id,
       updateData: {
         name: `${first_name} ${last_name || ""}`,
@@ -98,10 +102,14 @@ export async function POST(req: Request) {
   if (eventType === "user.deleted") {
     const { id } = evt.data;
 
-    const deletedUser = deleteUser({ clerkId: id! });
+    console.log("Event Type: Delete");
+
+    const deletedUser = await deleteUser({ clerkId: id! });
 
     return NextResponse.json({ message: "OK", user: deletedUser });
   }
 
-  return new Response("", { status: 200 });
+  return new Response(`Webhook with and ID of ${id} and type of ${eventType}`, {
+    status: 200,
+  });
 }
